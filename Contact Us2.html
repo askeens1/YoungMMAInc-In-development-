@@ -1,0 +1,131 @@
+<?php
+
+if($_POST["submit"]) {
+    $recipient="askeens1@ivytech.edu"; 
+    $subject="Form to email message";
+    $senderFirstName=$_POST["first_name"];
+	$senderLastName=$_POST["last_name"];
+    $senderEmail=$_POST["email_address"];
+	$senderPhone=$_POST["phone_number"];
+	$message=$_POST["message"];
+
+    $mailBody="Name: $senderFirstName $senderLastName\nEmail: $senderEmail\nPhone: $senderPhone\n\n$message";
+
+    mail($recipient, $subject, $mailBody, "From: $sender <$senderEmail>");
+
+    $thankYou="<p>Thank you! Your message has been sent.</p>";
+}
+
+?>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Contact Us</title>
+	<meta charset="UTF-8">
+	
+		<style> 
+		
+		input[type=text] {
+			margin-bottom: 20px;
+			margin-top: 10px;
+			width:300px;
+			padding: 15px;
+			border-radius:5px;
+			border:1px solid #7ac9b7;
+			}
+		
+		input[type=submit] {
+			margin-bottom: 20px;
+			width:300px;
+			padding: 15px;
+			border-radius:5px;
+			border:1px solid #7ac9b7;
+			background-color: #4180C5;
+			color: aliceblue;
+			font-size:15px;
+			cursor:pointer;
+			}
+		
+		#submit:hover {
+			background-color: black;
+			}
+		textarea{
+			width:300px;
+			padding: 15px;
+			margin-top: 10px;
+			border:1px solid #7ac9b7;
+			border-radius:5px;
+			margin-bottom: 20px;
+			resize:none;
+			}
+		
+		input[type=text]:focus,textarea:focus {
+			border-color: #4697e4;
+			}
+	</style>
+</head>
+
+<body>
+<ul>
+	<li class="dropdown">
+	<a href="javascript.void(0)" class="dropbtn">Introduction </a>
+  <div class ="dropdown-content">
+		<a href="index.html">About Us </a>
+	<a href="OurMission.html">Our Mission </a>
+	<a href="#">Our Coach </a>
+
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Safety</a>
+    <div class="dropdown-content">
+      <a href="#">How Safe is MMA?</a>
+      <a href="#">How does is it compare with other sports?</a>
+      <a href="#">Does my child have to spar?</a>
+	  
+	<li class="dropdown">
+	<a href="javascript:void(0)" class="dropbtn">What is MMA? </a>
+	<div class="dropdown-content">
+		<a href="#">What is MMA? </a>
+		<a href="#">Rules of MMA </a>
+		<a href="#">History of MMA </a>
+		<li class="dropdown">
+		<a href="javascript:void(0)" class="dropbtn">MMA Gear </a>
+	<div class="dropdown-content">
+		<a href="#">Safety Gear </a>
+		<a href="#">Gloves </a>
+		<a href="#">Trunks/Shirts </a>
+	<li><a href="#Location/Hours">Location/Hours </a>
+	<li><a href="#Contact Us">Contact Us </a>
+			
+    </div>
+  </li>
+</ul>
+
+	<?=$thankYou ?> 
+	
+	<form id = "form" method="post" action="lab5.php">
+	
+		<label>First Name </label><br>
+			<input type="text" id="fname" name="first_name"><br><br>
+		<label>Last Name </label><br>
+			<input type="text" id="lname" name="last_name"><br><br>
+		
+	
+		<label>Email Address </label><br>
+			<input type="text" id="email" name="email_address"><br><br>
+		<label>Phone Number </label><br>
+			<input type="text" id="phone" name="phone_number"><br><br>
+	
+		<label>Message </label><br>
+			<textarea type="textarea" id="message" name="message"></textarea><br><br>
+		<input type="submit" name="submit" id="submit" value="Submit">
+		
+
+</form>
+	
+	
+
+</body>
+
+
+</html>
